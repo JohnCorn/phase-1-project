@@ -8,30 +8,30 @@
 
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed");
-    GetDisplaySubwayLines();
+    GetDisplayStationNames();
   });
 
-  function GetDisplaySubwayLines()
-  {
-    console.log("GetDisplaySubwayLines");
-    let lineIcons = document.getElementById('LineIcons');
-    // TODO: loop though all the lines and add icons to the LineIcons div
-    // TODO: add event to each icon that calls GetDisplayStationNames
-  }
+  
 
   function GetDisplayStationNames()
   {
-    console.log("GetDisplayStationNames");
-    let stationNames = document.getElementById('StationNames');
-    // Clear all the currently displayed stations
-    stationNames.innerHTML = '';
 
-    // TODO: fetch station names
-    // Display each station, and update DOM
-    // TODO: add event to each name that calls GetDisplayStationNames
-  }
+    let url = 'https://bobsburgers-api.herokuapp.com/burgerOfTheDay/';
+    
+    fetch(url,
+    {
+        method: "GET",
+        headers:
+        { 
+            'Accept': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
 
-  function GetDisplayTrainTimes()
-  {
-    let trainTimes = document.getElementById('TrainTimes');
-  }
+        for(let i = 0; i < data.length; i++)
+        {
+            console.log(data[i].name);
+        }
+    });
+}
