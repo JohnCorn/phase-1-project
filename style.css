@@ -1,0 +1,20 @@
+html 
+{
+    background-color: #4DACD0;
+}
+
+#Title{
+    background-color: #F4E123;
+    color: #EB1D2B;
+
+    /* Text */
+    text-shadow: black;
+    font-family: Arial;
+
+    /* Outline */
+    outline-style: solid;
+    outline-color: #EB1D2B;
+    outline-width: thick;
+
+    
+}
