@@ -11,17 +11,27 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;800&display=swap" rel="stylesheet">
     </head>
-    <body class="bg-gray-300">
-        <div 
-        x-data="data()"
-        >
+    <body class="bg-neutral-200">
+        <!-- Holds and lays out all of our cards-->
+        <div id='CardLayout'
+        class="mx-auto px-8 py-8 w-full max-w-6xl grid grid-cols-3 gap-5"
+        ></div>
+        <div>
             <div 
-            x-show="data.isOpen"
-            class="fixed h-screen w-1/2 max-w-1/5 bg-neutral-100 top-0 right-0 z-30 p-16 flex flex-col items-start gap-10 shadow-2xl shadow-black"
-            @click.outside="data.isOpen = false"
-            >
+            id="slideCard"
+            class="hidden fixed h-screen w-1/2 max-w-1/5 bg-neutral-100 top-0 right-0 z-30 p-16 flex flex-col items-start gap-10 shadow-2xl shadow-black"
+            <!--@click.outside="data.isOpen = false"-->
+            <button id ='closeBtn'>Close</button>
+                <div id="innerCard">
+                    <h1 id="innerName"></h1>
+                    <img id ='innerPortrait'></img>
+                </div>
             </div>
         </div>
-
-        </body>
+        <div
+        id="overlay"
+        class="hidden w-screen h-screen z-20 backdrop-blur-sm backdrop-brightness-75 md:backdrop-filter-none fixed inset-0"
+        >
+        </div>
+    </body>
 </html>
