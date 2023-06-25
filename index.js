@@ -1,160 +1,81 @@
-let fetchedData;
-let burgerInfo;
-let episodeInfo;
-let dropdownIsOpen = false;
-
-
-//#region Initialization
-const handleEscape = e => {
-    if (e.key ==='Esc'|| e.key === 'Escape')
-        ToggleDropDown(false);
+const data = () => {
+    return {
+        data:{
+            isOpen: true,
+        }
+    }
 }
 
-window.addEventListener("DOMContentLoaded", (event) => 
-{    
-    document.getElementById('dropdownBtn').addEventListener('click', event => {
-        ToggleDropDown(!dropdownIsOpen);
-    });
+let pokemonData = [];
 
-    document.addEventListener('keydown', handleEscape);
+window.addEventListener('keypress', event => ToggleScreen(event));
 
-    burgerInfo  = document.getElementById('burgerInfo');
-    episodeInfo = document.getElementById('episodeInfo');
-    GetAllBurgers();
+window.addEventListener("DOMContentLoaded", (event) => {
+    //console.log("DOM fully loaded and parsed");
+    SetUp();
   });
 
-function GetAllBurgers()
-{
-    let url = 'https://bobsburgers-api.herokuapp.com/burgerOfTheDay/';
-    
-    fetch(url,
-    {
-        method: "GET",
-        headers:
-        { 
-            'Accept': 'application/json'
-        },
-    })
-    .then(response => response.json())
-    .then(data => {
-
-        fetchedData = data;
-        // Loop though all the data and pull out the burger name and add it to the drop down
-        for(let i = 0; i < fetchedData.length; i++)
+  function SetUp()
+  {
+    // Get all the URLs
+    let urls = GetSetAllPokemonURL()
+    .then(res => {
+        let a = GetPokemonData(res)
+        .then(data => 
         {
-            const ddMenu = document.getElementById('ddMenu');
-
-            let option = document.createElement('a');
-            // <a href="#" class="block px-4 py-1 text-gray-800 hover:bg-indigo-500 hover:text-white">Test 1</a>
-            option.classList = "block px-4 py-1 text-gray-800 hover:bg-indigo-500 hover:text-white";
-            option.href = "#";
-            let displayText = SplitName(data[i].name);
-
-            option.innerText = displayText[0];
-            ddMenu.append(option);
-
-            option.addEventListener('click', event => {
-                DropDownChange(i);
-                ToggleDropDown(false);
-            });
-        }
-    });
-}
-//#endregion
-
-function DropDownChange(value)
-{
-    BurgerCardSetUp(fetchedData[value]);
-    EpisodeCardSetUp(fetchedData[value]);
-}
-
-function BurgerCardSetUp(data)
-{
-    // clear out old info
-    burgerInfo.innerHTML = '';    
-
-    let burgerName = SplitName(data.name);
-
-    // Set Up burger name
-    let nameHeader =  document.createElement('h1');
-    nameHeader.textContent = burgerName[0];
-    burgerInfo.append(nameHeader);
-
-    // Set Up burget details
-    if (burgerName.length > 1)
-    {
-        let detailHeader =  document.createElement('h3');
-        detailHeader.textContent = burgerName[1];
-        burgerInfo.append(detailHeader);
-    }
-
-    // Set Up price
-    let priceHeader =  document.createElement('h3');
-    priceHeader.textContent = data.price;
-    burgerInfo.append(priceHeader);
-}
-
-function EpisodeCardSetUp(burgerData)
-{
-    // clear out old info
-    episodeInfo.innerHTML = '';
-
-    fetch(burgerData.episodeUrl,
-    {
-        method: "GET",
-        headers:
-        { 
-            'Accept': 'application/json'
-        },
-    })
-    .then(response => response.json())
-    .then(episodeData => {
-
-        let titleHeader = document.createElement('h3');
-        titleHeader.textContent = episodeData.name;
-        episodeInfo.append(titleHeader);
-
-        // Set Up episode title
-        let seasonHeader = document.createElement('h3');
-        seasonHeader.textContent = `Season: ${episodeData.season} Episode: ${episodeData.episode}`;
-        episodeInfo.append(seasonHeader);
-
-        let moreInfoBtn = document.createElement('button');
-        moreInfoBtn.textContent = 'More Info';
-        moreInfoBtn.addEventListener('click', event => {
-            window.open(episodeData.episodeUrl);
+            for(let i = 0; i < data.length; i++)
+            {
+                console.log(data[i].sprite)
+            }
         });
-        episodeInfo.append(moreInfoBtn);
-    } );
-}
+    })
 
-function SplitName(fullName)
-{
-    let nameArray = [];
-    
-    let splitName = fullName.split(" - ");
-    nameArray.push(splitName[0].toUpperCase());
+  }
+  
+  async function GetSetAllPokemonURL()
+  {
+    let a = await fetch(`https://pokeapi.co/api/v2/pokemon/`,
+        {
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+        },
+        })
+        .then(res => res.json())
+        .then (data => {
+            return data
+        });
 
-    if (splitName.length > 1)
-        nameArray.push(splitName[1].toLowerCase());
+        return a;
+  }
 
-    return nameArray;
-}
-
-function ToggleDropDown(isOpen)
-{
-    // dont toggle drop down if current state is called
-    if (isOpen == dropdownIsOpen)
-        return;
-
-    dropdownIsOpen = isOpen;
-    console.log(`dropDownIsOpen: `, isOpen);
-
-    let ddMenu = document.getElementById('ddMenu');
-    if(ddMenu.classList.contains('hidden'))
+  async function GetPokemonData(pokemon)
+  {
+    let p =[];
+    for(let i = 0; i < pokemon.results.length; i++)
     {
-        ddMenu.classList.remove('hidden');
-    }else{
-        ddMenu.classList.add('hidden');
+        let a = await fetch(pokemon.results[i].url,
+        {
+        method: "GET",
+        header: {
+          "Content-Type": "application/json",
+            },
+        })
+        .then(res => res.json());
+        //.then(data => console.log(data));
+
+        p.push(a);
+
     }
-}
+    return p;
+  }
+
+  
+
+  function ToggleScreen(event)
+  {
+    if (event.key == 'e'){
+        data.isOpen = !data.isOpen;
+        console.log(`data.isOpen`, data.isOpen);
+    }
+  }

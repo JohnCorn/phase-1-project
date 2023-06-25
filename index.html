@@ -4,27 +4,24 @@
         <!--<link rel="stylesheet" href="style.css">-->
         <script src="index.js"></script>
         <link rel="stylesheet" href="dist/output.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;800&display=swap" rel="stylesheet">
     </head>
-    <body class="bg-gray-500">
-        <h1 class="text-red-700 text-3xl font-bold" id = 'Title'>Bobs Burger's Burgers</h1>
-
-        <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
-            <button id = "dropdownBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">
-                Button
-            </button>
-            <!--Add all the burger names here-->
-            <div id ="ddMenu" class="hidden mt-2 py-1 w-48 bg-slate-50 rounded-lg shadow-md shadow-black">
+    <body class="bg-gray-300">
+        <div 
+        x-data="data()"
+        >
+            <div 
+            x-show="data.isOpen"
+            class="fixed h-screen w-1/2 max-w-1/5 bg-neutral-100 top-0 right-0 z-30 p-16 flex flex-col items-start gap-10 shadow-2xl shadow-black"
+            @click.outside="data.isOpen = false"
+            >
             </div>
         </div>
 
-       
-        <div id = 'infoCard'>
-            <div id = burgerInfo>
-            </div>
-            <div id = episodeInfo>
-            </div>
-        </div>
-    </body>
+        </body>
 </html>
-
