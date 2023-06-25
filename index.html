@@ -11,26 +11,51 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;800&display=swap" rel="stylesheet">
     </head>
-    <body class="bg-neutral-200">
+    <body class="bg-neutral-300">
         <!-- Holds and lays out all of our cards-->
         <div id='CardLayout'
         class="mx-auto px-8 py-8 w-full max-w-6xl grid grid-cols-3 gap-5"
         ></div>
-        <div>
-            <div 
-            id="slideCard"
-            class="hidden fixed h-screen w-1/2 max-w-1/5 bg-neutral-100 top-0 right-0 z-30 p-16 flex flex-col items-start gap-10 shadow-2xl shadow-black"
-            <!--@click.outside="data.isOpen = false"-->
-            <button id ='closeBtn'>Close</button>
-                <div id="innerCard">
-                    <h1 id="innerName"></h1>
-                    <img id ='innerPortrait'></img>
+        <div id="slideCard"
+        class="hidden fixed h-screen w-1/2 max-w-1/5 bg-neutral-100 top-0 right-0 z-30 p-16 shadow-2xl shadow-black"
+        >
+            <button id ='closeBtn'
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >X
+            </button>
+            <div id="innerCard"
+            class="mx-auto w-full py-5"
+            > 
+            <!--Image Group-->
+                <div
+                class='h-32 w-32 overflow-hidden rounded-full bg-black flex items-center justify-center'
+                >
+                <img id ='innerPortrait'
+                class="h-32 w-32 object-cover"
+                ></img>
+                </div>
+
+                <!--Name Group-->
+                <div
+                class="text-2xl font-bold px-5 py-5 w-auto my-5 mx-auto flex justify-center rounded-full bg-gray-500 text-white"
+                >
+                <span id="innerName"></span>
+                </div>
+                <div id="TypeHolder"
+                class="mx-auto grid grid-cols-3 gap-2"></div>
+
+                <!--Move Group-->
+                <div class="">     
+                    <span>Moves</span>
+                    <div id = "moveHolder"
+                    class=""
+                    ></div>
                 </div>
             </div>
         </div>
         <div
         id="overlay"
-        class="hidden w-screen h-screen z-20 backdrop-blur-sm backdrop-brightness-75 md:backdrop-filter-none fixed inset-0"
+        class="hidden w-screen h-screen z-20 backdrop-blur-sm backdrop-brightness-75 fixed inset-0"
         >
         </div>
     </body>
