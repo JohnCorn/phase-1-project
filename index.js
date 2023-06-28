@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", (event) =>
     const card = document.createElement('div');
     //card.classList ="relative flex justify-center";
     card.classList =
-    "p-6 rounded-3xl border-4 border-white bg-neutral-100 flex gap-5 items-center shadow-xl"
+      "p-6 rounded-3xl border-4 border-white bg-neutral-100 flex gap-5 items-center shadow-xl"
     + " hover:shadow-xl hover:shadow-black transition-shadow duration-250 ease-out"
     + " cursor-pointer hover:p-4"
     + " hover:-translate-y-2 hover:border-8 hover:border-orange-300 hover:bg-yellow-100 ";
@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", (event) =>
       const holder = document.createElement('div');
       const typeColor = GetTypeColorString(typeName);
 
-      holder.classList =`flex justify-center rounded-full text-white ${typeColor} font-semibold`;
+      holder.classList =`text-center rounded-full text-white ${typeColor} font-semibold`;
       const typeText = document.createElement('span');
       typeText.innerText = pokemonData[index].types[i].type.name;
 
@@ -144,14 +144,19 @@ window.addEventListener("DOMContentLoaded", (event) =>
 
     // Move sets
     const moveHolder = document.getElementById('moveHolder');
+
+    // clear out old values
+    moveHolder.innerHTML = '';
+
     for(let i = 0; i < pokemonData[index].moves.length; i++)
     {
-      console.log();
+      const move = document.createElement('li');
+      move.textContent = pokemonData[index].moves[i].move.name;
+      moveHolder.append(move);
+
+      if (i >= 9)
+        break;
     }
-    const portraitHolder = document.createElement('span');
-    
-    //TODO: add getset color method for pokemon type: ex: grass returns green
-    // TODO: add nect and last buttons
   }
 
   function GetTypeColorString(typeString)
