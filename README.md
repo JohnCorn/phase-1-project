@@ -1,15 +1,28 @@
 # Pokedex Web App
-The Pokedex Web App is a comprehensive application that serves as an online encyclopedia for Pokemon trainers. It provides a user-friendly interface to explore and discover information about various Pokemon species, including their characteristics, abilities, stats, evolutionary lines, and more. This README file aims to guide you through the installation, setup, and usage of the Pokedex Web App.
+The Pokedex Web App is a user-friendly website that allows you to explore the world of Pokemon by clicking on different Pokemon. It serves as an online encyclopedia, providing detailed information about the first 20 Pokemon, including their name, type, sand move sets. This README file will guide you through the usage of the Pokedex Web App.
 
 ## Features
-Search Pokemon: Easily search for any Pokemon by name or number and access detailed information about them.
-Filter and Sorting: Filter and sort Pokemon based on their type, generation, and various other attributes.
-Favorite Pokemon: Save your favorite Pokemon for quick access and create a personalized list of preferred creatures.
-Evolution Chains: Visualize the evolution chains of Pokemon and understand their evolutionary relationships.
-Type Effectiveness: Determine the effectiveness of different types against each other with a built-in type chart.
+Interactive Interface: Easily navigate through the Pokemon world by clicking on various Pokemon to access their detailed information.
+Comprehensive Pokemon Information: Get access to a wealth of information about each Pokemon, including their type, abilities, height, weight, and evolutionary chain.
 Responsive Design: Enjoy a seamless browsing experience across multiple devices with a responsive and mobile-friendly layout.
 Installation
-To run the Pokedex Web App locally, follow these steps:
+To access the Pokedex Web App, you don't need to install anything. Simply follow the steps below:
+
+Visit the website:
+That's it! You're ready to start using the Pokedex Web App.
+
+## Usage
+Once you have accessed the Pokedex Web App, follow these steps to explore and discover Pokemon:
+
+Explore Pokemon: On the homepage of the web app, you will see a grid or list of Pokemon. Each Pokemon will be represented by its image or icon.
+
+Click on a Pokemon: To view detailed information about a specific Pokemon, click on its image or icon in the grid or list. This will take you to the Pokemon's dedicated page.
+
+View Pokemon Details: On the Pokemon's page, you will find a wealth of information about the selected Pokemon. This includes its name, type, abilities, height, weight, evolutionary chain, and more.
+
+Navigate Back: To explore other Pokemon, simply use the back button on your browser or navigate to the homepage of the Pokedex Web App.
+
+Repeat Steps 2-4: Continue clicking on different Pokemon to view their details and learn more about the vast Pokemon world.
 
 ## Contributing
 Contributions to the Pokedex Web App are welcome! If you have any bug reports, feature requests, or improvements, please open an issue on the project's GitHub repository.
