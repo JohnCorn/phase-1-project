@@ -1,5 +1,11 @@
 let pokemonData = [];
 
+window.addEventListener("resize", () =>
+{
+  console.log(`h:${window.innerHeight}, w:${window.innerWidth}`);
+});
+
+
 window.addEventListener("DOMContentLoaded", (event) => 
 {
     let a = GetPokemonData()
