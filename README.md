@@ -18,21 +18,26 @@ That's it!
 ## Usage
 Once you have accessed the Pokedex Web App, follow these steps to explore and discover Pokemon:
 
-Explore Pokemon: On the homepage of the web app, you will see a grid of Pokemon. Each Pokemon is represented by its image and name.
+### Explore Pokemon:
+On the homepage of the web app, you will see a grid of Pokemon. Each Pokemon is represented by its image and name.
 
-Click on a Pokemon: To view detailed information about a specific Pokemon, click on its icon in the grid. This will pop out the Pokemon's dedicated page.
+### Click on a Pokemon:
+To view detailed information about a specific Pokemon, click on its icon in the grid. This will pop out the Pokemon's dedicated page.
 
-View Pokemon Details: On the Pokemon's page, you will find a wealth of information about the selected Pokemon. This includes its name, type, and abilities.
+### View Pokemon Details:
+On the Pokemon's page, you will find a wealth of information about the selected Pokemon. This includes its name, type, and abilities.
 
-Navigate Back: To explore other Pokemon, simply use the X button on the popped out Pokemon's page.
+### Navigate Back:
+To explore other Pokemon, simply use the X button on the popped out Pokemon's page.
 
-Repeat Steps 2-4: Continue clicking on different Pokemon to view their details and learn more about the vast Pokemon world.
+### Repeat Steps 2-4:
+Continue clicking on different Pokemon to view their details and learn more about the vast Pokemon world.
 
 ## Contributing
 Contributions to the Pokedex Web App are welcome! If you have any bug reports, feature requests, or improvements, please open an issue on the project's GitHub repository.
 
 ## Acknowledgments
-The Pokedex Web App is built the PokeAPI. I would like to express my gratitude to the contributors and libraries that have made this project possible.
+The Pokedex Web App is built using the PokeAPI. I would like to express my gratitude to the contributors and libraries that have made this project possible.
 
 ## License
 The Pokedex Web App is released under the MIT License. You are free to modify and distribute the application under the terms specified in the license.
