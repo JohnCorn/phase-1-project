@@ -40,18 +40,18 @@ window.addEventListener("DOMContentLoaded", (event) =>
   {
     const cardLayout = document.getElementById('CardLayout');
 
-    for(let i = 0; i < pokemonData.length; i++)
+    pokemonData.forEach((n, i) => 
     {
-        const cardInfo = CreateCardGroup(cardLayout, i);
+      const cardInfo = CreateCardGroup(cardLayout, i);
 
-        // create and setups up background and image for portait
-        const portraitHolder =  CreatePortraitHolder(pokemonData[i]);    
-        cardInfo.append(portraitHolder);
+      // create and setups up background and image for portait
+      const portraitHolder =  CreatePortraitHolder(n);    
+      cardInfo.append(portraitHolder);
 
-        // create name header
-        const namePlate = CreateNamePlate(pokemonData[i]);
-        cardInfo.append(namePlate);
-    }
+      // create name header
+      const namePlate = CreateNamePlate(n);
+      cardInfo.append(namePlate);
+    });
   }
 
   function CreateCardGroup(cardLayout, index)
