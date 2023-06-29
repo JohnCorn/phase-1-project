@@ -1,7 +1,5 @@
 let pokemonData = [];
 
-// TODO: have a solid read me
-// - look for all the bugs, break it in the browser
 window.addEventListener("DOMContentLoaded", (event) => 
 {
     let a = GetPokemonData()
@@ -16,7 +14,6 @@ window.addEventListener("DOMContentLoaded", (event) =>
   async function GetPokemonData()
   {
     let p =[];
-    // TODO: refactor this so it uses and array method
     for(let i = 1; i <= 20; i++)
     {
         let a = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`,
@@ -61,7 +58,6 @@ window.addEventListener("DOMContentLoaded", (event) =>
     cardLayout.append(cardHolder);
 
     const card = document.createElement('div');
-    //card.classList ="relative flex justify-center";
     card.classList =
       "p-6 rounded-3xl border-4 border-white bg-neutral-100 flex gap-5 items-center shadow-xl"
     + " hover:shadow-xl hover:shadow-black transition-shadow duration-250 ease-out"
